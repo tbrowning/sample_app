@@ -1,11 +1,24 @@
-<h1>Sample App</h1>
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">What's up?</h1>
+        <%= render 'shared/micropost_form' %>
+        <%= render 'shared/feed' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>Sample App</h1>
 
-<p>
-  Hello! Welcome to my mock Twitter application that I'm building in an attempt to better understand the Ruby programming language.
-  There won't be much here at the moment, but hopefully it will eventually have some functionality. :D
-  <br>
-  <br>
-  Currently I am working on building the user database and creating a user authentication service.
-</p>
+  <p>
+    This is the home page for the
+    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+    sample application.
+  </p>
 
-<%= link_to "Sign up now!", 'signup', :class => "signup_button round" %>
+  <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>

@@ -7,7 +7,7 @@ module SessionsHelper
   end
 
   def signed_in?
-    !current_user.nil?
+      !current_user.nil?
   end
 
   def current_user
@@ -15,8 +15,12 @@ module SessionsHelper
   end
 
   def sign_out
-    cookies.delete(:remember_token)
-    @current_user = nil
+      cookies.delete(:remember_token)
+      @current_user = nil
+  end
+
+  def authenticate
+      deny_access unless signed_in?
   end
 
   def deny_access
