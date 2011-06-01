@@ -1,0 +1,17 @@
+<%= form_for @micropost do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+
+    <form name="myform">
+    <textarea name="limitedtextarea" onKeyDown="limitText(this.form.limitedtextarea,this.form.countdown,140);"
+    onKeyUp="limitText(this.form.limitedtextarea,this.form.countdown,140);">
+    </textarea><br>
+    <font size="1">(Maximum characters: 140)<br>
+    You have <input readonly type="text" name="countdown" size="3" value="140"> characters left.</font>
+    </form>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

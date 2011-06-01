@@ -138,7 +138,7 @@ td.sidebar {
 }
 
 div.field, div.actions {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .field_with_errors {
